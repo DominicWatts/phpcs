@@ -1,0 +1,6 @@
+version: "2"
+services:
+
+  phpcs:
+    image: domw/phpcs:7.1-cli
+    restart: 'always'
