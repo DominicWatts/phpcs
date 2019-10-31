@@ -1,8 +1,14 @@
 # phpcs docker image with Magento 2 Code Quality Ruleset
 
+[Docker_Hub](https://hub.docker.com/r/domw/phpcs)
+
 ## Compilation
 
     docker login
+
+    docker build -t domw/phpcs:latest ./
+
+    docker push domw/phpcs:latest
 
     docker build -t domw/phpcs:7.1-cli ./
 
