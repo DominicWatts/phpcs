@@ -1,5 +1,5 @@
 
-FROM php:7.1-cli
+FROM php:7.4-cli
 
 MAINTAINER Dominic <dominic@xigen.co.uk>
 
