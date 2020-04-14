@@ -24,16 +24,16 @@
     
     docker pull domw/phpcs
     
-    docker run --rm -v $PWD:/code:ro domw/phpcs phpcs --version
+    docker run --rm -v $PWD:/code domw/phpcs phpcs --version
     
-    docker run --rm -v $PWD:/code:ro domw/phpcs phpcs -i
+    docker run --rm -v $PWD:/code domw/phpcs phpcs -i
     
-    docker run --rm -v $PWD:/code:ro domw/phpcs phpcs /path/to/code
+    docker run --rm -v $PWD:/code domw/phpcs phpcs /path/to/code
     
-    docker run --rm -v $PWD:/code:ro domw/phpcs phpcs --standard=Magento2 /path/to/code
+    docker run --rm -v $PWD:/code domw/phpcs phpcs --standard=Magento2 /path/to/code
     
-    docker run --rm -v $PWD:/code:ro domw/phpcs phpcs --standard=Magento2 --report=full,summary,gitblame /path/to/code
+    docker run --rm -v $PWD:/code domw/phpcs phpcs --standard=Magento2 --report=full,summary,gitblame /path/to/code
     
-    docker run --rm -v $PWD:/code:ro domw/phpcs phpcs --colors --warning-severity=0 --standard=Magento2 --report=full,summary,gitblame /path/to/code
+    docker run --rm -v $PWD:/code domw/phpcs phpcs --colors --warning-severity=0 --standard=Magento2 --report=full,summary,gitblame /path/to/code
     
-    docker run --rm -v $PWD:/code:ro domw/phpcs phpcs --colors --warning-severity=0 --standard=Magento2 --report=full,summary --extensions=php,phtml /path/to/code
+    docker run --rm -v $PWD:/code domw/phpcs phpcs --colors --warning-severity=0 --standard=Magento2 --report=full,summary --extensions=php,phtml /path/to/code
