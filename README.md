@@ -37,3 +37,19 @@
     docker run --rm -v $PWD:/code domw/phpcs phpcs --colors --warning-severity=0 --standard=Magento2 --report=full,summary,gitblame /path/to/code
     
     docker run --rm -v $PWD:/code domw/phpcs phpcs --colors --warning-severity=0 --standard=Magento2 --report=full,summary --extensions=php,phtml /path/to/code
+
+## Gitlab
+
+    stages:
+      - code-style
+
+    phpcs-magento2:
+      image: domw/phpcs
+      type: code-style
+      tags:
+        - docker
+      script:
+        - phpcs --version
+        - phpcs -i
+        - phpcs --colors --standard=Magento2 --warning-severity=0 --report=full,summary,gitblame /builds/vendor/module/path/to/code/
+        - phpcs --colors --standard=Magento2 --warning-severity=0 --report=full,summary,gitblame /builds/vendor/module/app/design/frontend/Theme/
