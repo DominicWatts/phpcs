@@ -1,7 +1,9 @@
+ARG PHP_VER
+ARG EMAIL
 
-FROM php:7.4-cli
+FROM ${PHP_VER}
 
-MAINTAINER Dominic <dominic@xigen.co.uk>
+MAINTAINER Dominic ${EMAIL}
 
 RUN apt-get update \
  && apt-get install -y \
@@ -13,7 +15,8 @@ RUN apt-get update \
 RUN docker-php-ext-install \
   zip
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+ARG COMP_VER
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=${COMP_VER}
 
 RUN composer global require squizlabs/php_codesniffer:^3.4 \
   && composer global require magento/magento-coding-standard \
@@ -21,6 +24,8 @@ RUN composer global require squizlabs/php_codesniffer:^3.4 \
   && mkdir -p /code
 
 ENV PATH="/root/.composer/vendor/squizlabs/php_codesniffer/bin:${PATH}"
+
+RUN phpcs --config-set installed_paths /root/.composer/vendor/magento/magento-coding-standard,/root/.composer/vendor/phpcompatibility/php-compatibility
 
 WORKDIR /code
 VOLUME /code
