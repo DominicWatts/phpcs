@@ -6,13 +6,13 @@
 
     docker login
 
-    docker build -t domw/phpcs:latest ./
+    docker build -t domw/phpcs:latest --build-arg="PHP_VER=php:7.4-cli" --build-arg="COMP_VER=2.5.8" --build-arg="EMAIL=dominic@pixie.agency" ./
 
     docker push domw/phpcs:latest
 
-    docker build -t domw/phpcs:7.1-cli ./
+    docker build -t domw/phpcs:7.1-cli --build-arg="PHP_VER=php:7.4-cli" --build-arg="COMP_VER=2.5.8" --build-arg="EMAIL=dominic@pixie.agency" ./
 
-    docker push domw/phpcs:7.1-cli 
+    docker push domw/phpcs:7.4-cli 
 
 ## Test
 
